@@ -19,11 +19,6 @@ db = SQLAlchemy(app)
 
 from .models import Pet
 
-@app.before_first_request
-def setup():
-    db.drop_all()
-    db.create_all()
-
 @app.route("/")
 def home():
     return render_template("index.html")
